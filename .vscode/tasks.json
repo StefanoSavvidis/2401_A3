@@ -1,0 +1,22 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build hello world",
+      "type": "shell",
+      "command": "clear && gcc",
+      "args": [
+        "-g",
+        "hospital.c",
+        "patient.c",
+        "employee.c",
+        "populateRecords.c",
+        "&& ./a.out"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
+}
