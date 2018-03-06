@@ -45,7 +45,7 @@ int main()
     */
 
     //printEmployees(person, NUM_RECORDS);
-    printEmployeesSummary(person, NUM_RECORDS);
+    printPatients(person, NUM_RECORDS);
 
     // add code here
     //

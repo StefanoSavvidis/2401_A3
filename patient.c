@@ -9,15 +9,20 @@ void printPatient(PersonRec person)
 
 {
 
-    // add code 
-
+    printf("Department:%hu\tDays in Hospital:%f\tSeverity:%d\tDaily Cost:%d\n",
+    person.patient.department, person.patient.numDaysInHospital, person.patient.severity, person.patient.dailyCost);
 }
 
 /********************************************************************/
 void printPatients(PersonRec *person, int numRecords)
 {
-    // add code 
-
+    for (int i = 0; i < numRecords; i++)
+    {
+        if (person[i].emplyeeOrPatient)
+        {
+            printEmployee(person[i]);
+        }
+    }
 }
 
 

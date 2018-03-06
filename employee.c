@@ -4,7 +4,7 @@
 void printEmployee(PersonRec person)
 
 {
-    printf("Department:%hu\tSalary:%f\tPosition:%d\tYtoears of service:%hu\n",
+    printf("Department:%hu\tSalary:%f\tPosition:%d\tYears of service:%hu\n",
     person.emp.department, person.emp.salary, person.emp.position, person.emp.yearsService);
 }
 
