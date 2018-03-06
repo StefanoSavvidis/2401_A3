@@ -43,9 +43,9 @@ int main()
 
     } while (menuOption != 0);
     */
-    
-    printEmployees(person, NUM_RECORDS);
 
+    //printEmployees(person, NUM_RECORDS);
+    printEmployeesSummary(person, NUM_RECORDS);
 
     // add code here
     //
