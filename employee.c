@@ -4,15 +4,15 @@
 void printEmployee(PersonRec person)
 
 {
-
-    printf("dept:%hu\tsalary:%f\tposition:%d\tyears of service:%hu\n",person.emp.department, person.emp.salary, person.emp.position, person.emp.yearsService);
-
+    printf("Department:%hu\tSalary:%f\tPosition:%d\tYears of service:%hu\n",
+    person.emp.department, person.emp.salary, person.emp.position, person.emp.yearsService);
 }
 
 void printEmployees(PersonRec *person, int numRecords)
 {
+    
     for(int i = 0; i < numRecords; i++) {
-        if (person[i].emplyeeOrPatient == 0) {
+        if (!person[i].emplyeeOrPatient) {
             printEmployee(person[i]);
         }
         
