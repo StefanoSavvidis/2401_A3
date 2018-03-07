@@ -23,15 +23,15 @@ int menu()
     printf("5. Summary of Patients Data\n");
     printf("6. Size of structures\n");
     printf("0. Quit\n%s\n", line);
-    scanf("%d", &choice);
+    scanf(" %d", &choice);
     return choice;
 }
 
 void sizeOfStructs(struct person *person)
 {
-    printf("%d\n", sizeof(PersonRec));
-    printf("%d\n", sizeof(EmployeeRec));
-    printf("%d\n", sizeof(PatientRec));
+    printf("Person Size: %d\n", sizeof(PersonRec));
+    printf("Employee Size: %d\n", sizeof(EmployeeRec));
+    printf("Patient Size: %d\n", sizeof(PatientRec));
    
 }
 
@@ -47,7 +47,8 @@ int main()
     // populating the array person with data of patients and employees
     populateRecords(person, NUM_RECORDS);
     
-    
+    char choice = ' ';
+    char quit = 0;
     int menuOption;
     system(command);
     do {
@@ -55,6 +56,11 @@ int main()
         system(command);
         switch(menuOption) {
             case 0: 
+                printf("Would you like to quit? (y/n)\n");
+                scanf(" %c", &choice);
+                if (choice == 'y'){
+                    quit = 1;
+                }
                 break;
             case 1:
                 printEmployees(person, NUM_RECORDS);
@@ -76,15 +82,7 @@ int main()
                 break;
         }
         printf("\n\n");
-    } while (menuOption != 0);
-    
-
-    //printEmployees(person, NUM_RECORDS);
-    //printEmployeesSummary(person, NUM_RECORDS);
-
-    // add code here
-    //
-
+    } while (quit == 0);
     
     return 0;
 }
