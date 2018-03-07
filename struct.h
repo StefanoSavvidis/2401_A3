@@ -61,7 +61,7 @@ typedef struct employee {
 typedef struct person {
 	char firstName[NAME_SIZE];
 	char familyName[NAME_SIZE];
-	char emplyeeOrPatient: 1;
+	unsigned char emplyeeOrPatient: 1;
 	union {
 		EmployeeRec emp;
 		PatientRec patient;

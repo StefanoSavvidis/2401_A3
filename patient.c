@@ -14,16 +14,17 @@ void printPatient(PersonRec person)
     person.patient.department, person.patient.numDaysInHospital, person.patient.severity, person.patient.dailyCost,
     (person.patient.dailyCost * person.patient.numDaysInHospital)
     );
+    // prints all patient data
 }
 
 /********************************************************************/
 void printPatients(PersonRec *person, int numRecords)
 {
-    for (int i = 0; i < numRecords; i++)
+    for (int i = 0; i < numRecords; i++) // itterate through every person
     {
-        if (person[i].emplyeeOrPatient)
+        if (person[i].emplyeeOrPatient) // check if therye a patient
         {
-            printPatient(person[i]);
+            printPatient(person[i]); // print patient
         }
     }
 }
@@ -32,18 +33,19 @@ void printPatients(PersonRec *person, int numRecords)
 /********************************************************************/
 void printPatientSummary(PersonRec *person, int numRecords)
 {
-    int patientsInDepartment[6] = {0};
-    int numberOfPatients = 0;
+    int patientsInDepartment[6] = {0}; // number of patients in department
+    int numberOfPatients = 0; // number of patients
 
-    double totalCostDepartment[6] = {0};
-    double totalCost = 0;
+    double totalCostDepartment[6] = {0}; // total cost of department
+    double totalCost = 0; // total cost
 
-    double totalDailyCostDepartment[6] = {0};
-    double totalDailyCost = 0;
+    double totalDailyCostDepartment[6] = {0}; // total daily cost of department
+    double totalDailyCost = 0; // total daily cost
 
-    double averageCostDepartment[6] = {0};
-    double averageCost = 0;
+    double averageCostDepartment[6] = {0}; // average cost of department
+    double averageCost = 0; // average cost
 
+    /* ADD PATIENT DATA TO RELEVANT STORAGE */
     for (int i = 0; i < numRecords; i++)
     {
         if (person[i].emplyeeOrPatient)
@@ -59,6 +61,7 @@ void printPatientSummary(PersonRec *person, int numRecords)
         }
     }
 
+    /* PRINT ALL COLLECTED DATA */
     averageCost = totalDailyCost/numberOfPatients;
     printf("Total Number of Patients: %-2d\tTotal Cost To-Date: %-6.0f\tAverage Cost Per Patient To-Date: %-4.2f\n", 
     numberOfPatients, totalCost, averageCost);
@@ -85,13 +88,19 @@ void searchPatient(PersonRec *person, int numRecords)
 {  
     printf("What is the family name of the patient?\n");
     char lastName[14];
-    scanf("%s", lastName);
+    scanf("%s", lastName); // get searched last name
     printf("\n");
+    int countMatches = 0;
     for (int i = 0; i < numRecords; i++)
     {
         if(strcmp(lastName, person[i].familyName) == 0 && person[i].emplyeeOrPatient) {
             printPatient(person[i]);
+            countMatches ++;
         }
+    }
+
+    if (countMatches == 0) {
+        printf("NO MATCHES FOUND");
     }
 
 }
