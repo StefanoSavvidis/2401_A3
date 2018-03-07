@@ -29,9 +29,10 @@ int menu()
 
 void sizeOfStructs(struct person *person)
 {
-    printf("%lu\n", sizeof(EmployeeRec));
-    printf("%lu\n", sizeof(PatientRec));
     printf("%d\n", sizeof(PersonRec));
+    printf("%d\n", sizeof(EmployeeRec));
+    printf("%d\n", sizeof(PatientRec));
+   
 }
 
 int main()

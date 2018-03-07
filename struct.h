@@ -16,7 +16,7 @@ February 10, 2018 Doron Nussbaum, initial version
 
 //DEFINES
 
-#define NAME_SIZE     64	// size of array for patient/employee name (maximum name length is NAME_SIZE - 1)
+#define NAME_SIZE  15	// size of array for patient/employee name (maximum name length is NAME_SIZE - 1)
 
 //Patient related defines
 #define PATIENT_TYPE 1      // determine that the record is a patient record
@@ -40,10 +40,11 @@ February 10, 2018 Doron Nussbaum, initial version
 
 // structure contains patient information 
 typedef struct patient {
-	unsigned short severity:2;		// severity of illness
+	unsigned char severity:2;		// severity of illness
 	unsigned short dailyCost:6;			// cost of hospitalization per day
-	unsigned short department:3;	// department in hospital
 	unsigned short numDaysInHospital:5; // number of days in hospital
+	unsigned short department:3;	// department in hospital
+	
 	
 } PatientRec;
 
@@ -64,7 +65,6 @@ typedef struct person {
 	union {
 		EmployeeRec emp;
 		PatientRec patient;
-
 	};
 } PersonRec;
 
