@@ -35,8 +35,8 @@ void printEmployeesSummary(PersonRec *person, int numRecords)
         {
             numberOfEmployees++;
             totalSalary += person[i].emp.salary;
-            employeesInPosition[person[i].emp.position - 1] += 1;
-            totalSalaryPosition[person[i].emp.position - 1] += person[i].emp.salary;
+            employeesInPosition[person[i].emp.position] += 1;
+            totalSalaryPosition[person[i].emp.position] += person[i].emp.salary;
         }
     }
 
@@ -51,6 +51,6 @@ void printEmployeesSummary(PersonRec *person, int numRecords)
             averageSalaryPosition[j] = 0;
         }
         printf("Position[%d] Employees:%d\tTotal Salary:%f\tAverage Salary:%f\n",
-        j + 1, employeesInPosition[j], totalSalaryPosition[j], averageSalaryPosition[j]);
+        j, employeesInPosition[j], totalSalaryPosition[j], averageSalaryPosition[j]);
     }
 }
