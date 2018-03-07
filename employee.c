@@ -4,7 +4,7 @@
 void printEmployee(PersonRec person)
 
 {
-    printf("%s %s\tDepartment:%hu\tSalary:%f\tPosition:%d\tYears of service:%hu\n",
+    printf("%-15s %-15s\tDepartment:%-1d\tSalary:%-9.2f\tPosition:%-1d\tYears of service:%-2d\n",
     person.firstName, person.familyName,
     person.emp.department, person.emp.salary, person.emp.position, person.emp.yearsService);
 }
@@ -41,8 +41,9 @@ void printEmployeesSummary(PersonRec *person, int numRecords)
     }
 
     averageSalary = totalSalary/numberOfEmployees;
-    printf("Total Number of Employees:%d\tTotal Salary:%f\tAverage Salary:%f\n", 
+    printf("Total Number of Employees:%-2d\tTotal Salary:%-11.2f\tAverage Salary:%-9.2f\n", 
     numberOfEmployees, totalSalary, averageSalary);
+    printf("\n");
 
     for (int j = 0; j < 4; j++) {
         if (employeesInPosition[j] > 0){
@@ -50,7 +51,7 @@ void printEmployeesSummary(PersonRec *person, int numRecords)
         } else {
             averageSalaryPosition[j] = 0;
         }
-        printf("Position[%d] Employees:%d\tTotal Salary:%f\tAverage Salary:%f\n",
+        printf("Position[%-1d] Employees:%-1d\t\tTotal Salary:%-11.2f\tAverage Salary:%-9.2f\n",
         j, employeesInPosition[j], totalSalaryPosition[j], averageSalaryPosition[j]);
     }
 }
