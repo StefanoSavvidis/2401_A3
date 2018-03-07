@@ -40,10 +40,11 @@ February 10, 2018 Doron Nussbaum, initial version
 
 // structure contains patient information 
 typedef struct patient {
-	unsigned short department:3;			// department in hospital
+	unsigned short severity:2;		// severity of illness
 	unsigned short dailyCost:6;			// cost of hospitalization per day
+	unsigned short department:3;	// department in hospital
 	unsigned short numDaysInHospital:5; // number of days in hospital
-	unsigned short severity:2;					// severity of illness
+	
 } PatientRec;
 
 // structure contains employee information

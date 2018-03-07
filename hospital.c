@@ -27,6 +27,13 @@ int menu()
     return choice;
 }
 
+void sizeOfStructs(struct person *person)
+{
+    printf("%lu\n", sizeof(EmployeeRec));
+    printf("%lu\n", sizeof(PatientRec));
+    printf("%d\n", sizeof(PersonRec));
+}
+
 int main()
 {
     struct person person[NUM_RECORDS];
@@ -64,7 +71,7 @@ int main()
                 printPatientSummary(person,NUM_RECORDS);
                 break;
             case 6:
-                
+                sizeOfStructs(person);
                 break;
         }
         printf("\n\n");
@@ -73,7 +80,7 @@ int main()
 
     //printEmployees(person, NUM_RECORDS);
     //printEmployeesSummary(person, NUM_RECORDS);
-    printPatients(person, NUM_RECORDS);
+
     // add code here
     //
 
