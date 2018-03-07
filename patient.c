@@ -9,8 +9,11 @@ void printPatient(PersonRec person)
 
 {
 
-    printf("Department:%hu\tDays in Hospital:%f\tSeverity:%d\tDaily Cost:%d\n",
-    person.patient.department, person.patient.numDaysInHospital, person.patient.severity, person.patient.dailyCost);
+    printf("%s %s\tDepartment:%d\tDays in Hospital:%d\tSeverity:%d\tDaily Cost:%d\tTotal Cost:%d\n",
+    person.firstName, person.familyName,
+    person.patient.department, person.patient.numDaysInHospital, person.patient.severity, person.patient.dailyCost,
+    (person.patient.dailyCost * person.patient.numDaysInHospital)
+    );
 }
 
 /********************************************************************/
@@ -20,7 +23,7 @@ void printPatients(PersonRec *person, int numRecords)
     {
         if (person[i].emplyeeOrPatient)
         {
-            printEmployee(person[i]);
+            printPatient(person[i]);
         }
     }
 }
@@ -30,16 +33,36 @@ void printPatients(PersonRec *person, int numRecords)
 void printPatientSummary(PersonRec *person, int numRecords)
 {
 
-    // add code 
+    int numberOfPatients = 0;
+    double totalCost = 0;
+    double averageCost = 0;
+    for (int i = 0; i < numRecords; i++)
+    {
+        if (!person[i].emplyeeOrPatient)
+        {
+            numberOfPatients++;
+            totalCost += person[i].patient.dailyCost;
+        }
+    }
 
+    averageCost = totalCost/numberOfPatients;
+    printf("Total Number of Patients:%d\tTotal Cost To-Date:%f\tAverage Cost Per Patient To-Date:%f\n", 
+    numberOfPatients, totalCost, averageCost);
 }
 
 
 /********************************************************************/
 void searchPatient(PersonRec *person, int numRecords)
+{  
+    printf("What is the family name of the patient?\n");
+    char lastName[14];
+    scanf("%s", lastName);
 
-{
-
-    // add code 
+    for (int i = 0; i < numRecords; i++)
+    {
+        if(strcmp(lastName, person[i].familyName) == 0 && person[i].emplyeeOrPatient) {
+            printPatient(person[i]);
+        }
+    }
 
 }

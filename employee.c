@@ -4,7 +4,8 @@
 void printEmployee(PersonRec person)
 
 {
-    printf("Department:%hu\tSalary:%f\tPosition:%d\tYears of service:%hu\n",
+    printf("%s %s\tDepartment:%hu\tSalary:%f\tPosition:%d\tYears of service:%hu\n",
+    person.firstName, person.familyName,
     person.emp.department, person.emp.salary, person.emp.position, person.emp.yearsService);
 }
 
@@ -35,5 +36,5 @@ void printEmployeesSummary(PersonRec *person, int numRecords)
     }
 
     averageSalary = totalSalary/numberOfEmployees;
-    printf("%d  %f  %f", numberOfEmployees, totalSalary, averageSalary);
+    printf("Total Number of Employees:%d\tTotal Salary:%f\tAverage Salary:%f\n", numberOfEmployees, totalSalary, averageSalary);
 }
